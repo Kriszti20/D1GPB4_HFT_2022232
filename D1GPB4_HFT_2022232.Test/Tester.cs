@@ -38,9 +38,9 @@ namespace D1GPB4_HFT_2022232.Test
 			{
 				Name = "Avicii"
 			};
-			Author bieber = new Author()
+			Author edsheraan = new Author()
 			{
-				Name = "Justin Bieber"
+				Name = "Ed Sheraan"
 			};
 			var songs = new List<Song>()
 			{				
@@ -54,12 +54,12 @@ namespace D1GPB4_HFT_2022232.Test
 				{
 					Title = "We'll Be Burnin",
 					Author = seanpaul,
-					Genre = "Dancehall"
+					Genre = "Rock"
 				},
 				new Song()
 				{
-					Title = "What Do You Mean",
-					Author = bieber,
+					Title = "Shape of You",
+					Author = edsheraan,
 					Genre = "Pop"
 				},
 				new Song()
@@ -94,25 +94,29 @@ namespace D1GPB4_HFT_2022232.Test
 				{
 					Name = "Stories",
 					Author = avicii,
-
+					ReleaseYear = 1994,
+					Id = 1
 				},
 				new Album()
 				{
 					Name = "True",
 					Author = avicii,
-					ReleaseYear = 2015
+					ReleaseYear = 2015,
+					Id = 2
 				},
 				new Album()
 				{
 					Name = "Dua Lipa",
 					Author = dualipa,
-					ReleaseYear = 2015
+					ReleaseYear = 2015,
+					Id = 3
 				},
 				new Album()
 				{
 					Name = "The Trinity",
 					Author = seanpaul,
-					ReleaseYear = 2006
+					ReleaseYear = 2006,
+					Id = 4
 				}
 				
 			};
@@ -152,54 +156,40 @@ namespace D1GPB4_HFT_2022232.Test
 		{
 			Assert.That(() => songLogic.Delete(30), Throws.Nothing);
 		}
-
 		[Test]
-		public void AviciiSongTest()
+		public void DeleteAlbumTest()
 		{
-			var result = songLogic.ListAviciiSongs().ToArray();
-			Assert.That(result[0].Title, Is.EqualTo("Wake Me Up"));
+			Assert.That(() => albumLogic.Delete(56), Throws.Nothing);
 		}
 		[Test]
-		public void FemaleSongsTest()
+		public void EdSheraanTest()
 		{
-			var result = songLogic.FemaleSongs().ToArray();
-			Assert.That(result[0].Title, Is.EqualTo("IDGAF"));
+			var result = songLogic.EdSheeranSongs().ToArray();
+			Assert.That(result[0].Title, Is.EqualTo("Shape of You"));
 		}
 		[Test]
-		public void SeanPaulDanceHallTest()
+		public void RockSongsTest()
 		{
-			var result = songLogic.SeanPaulDanceHallArray().ToArray();
-			Assert.That(result[0].Title, Is.EqualTo("Temperature"));
+			var result = songLogic.RockSongs().ToArray();
+			Assert.That(result[0].Title, Is.EqualTo("We'll Be Burnin"));
 		}
 		[Test]
-		public void MalePopSongTest()
+		public void AlbumsBefore1999Test()
 		{
-			var result = songLogic.MalePopSongs().ToArray();
-			Assert.That(result[0].Title, Is.EqualTo("What Do You Mean"));
+			var result = albumLogic.AlbumsBefore1999().ToArray();
+			Assert.That(result[0].Name, Is.EqualTo("Stories"));
 		}
 		[Test]
-		public void AlbumsFrom2015Test()
+		public void StudioAlbumsTest()
 		{
-			var result = albumLogic.AlbumsFrom2015();
-			Assert.That(result, Is.EqualTo(2));
+			var result = albumLogic.StudioAlbums().ToArray();
+			Assert.That(result, Is.Empty);
 		}
 		[Test]
-		public void HowManyDuaLipaSongsTest()
+		public void AlbumId2Test()
 		{
-			var result = songLogic.HowManyDuaLipaSongs();
-			Assert.That(result, Is.EqualTo(2));
-		}
-		[Test]
-		public void MGKAlbumsFrom2020Test()
-		{
-			var result = albumLogic.MGKAlbumsFrom2020();
-			Assert.That(result, Is.EqualTo(0));
-		}
-		[Test]
-		public void PunkRockSongsTest()
-		{
-			var result = songLogic.PunkRockSongs().ToArray();
-			Assert.That(result[0].Title, Is.EqualTo("Bloody Valentine"));
+			var result = songLogic.AlbumId2Songs().ToArray();
+			Assert.That(result, Is.Empty);
 		}
 	} 
 }

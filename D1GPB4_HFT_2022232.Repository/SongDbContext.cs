@@ -64,7 +64,7 @@ namespace D1GPB4_HFT_2022232.Repository
             Author author2 = new Author() { Id = 2, Name = "Ariana Grande" };
             Author author3 = new Author() { Id = 3, Name = "Justin Bieber" };
             Author author4 = new Author() { Id = 4, Name = "Michael Jackson" };
-            Author author5 = new Author() { Id = 5, Name = "Ed Sheeran" };
+            Author author5 = new Author() { Id = 5, Name = "Ed Sheraan" };
             Author author6 = new Author() { Id = 6, Name = "Adele" };
             Author author7 = new Author() { Id = 7, Name = "Blur" };
 

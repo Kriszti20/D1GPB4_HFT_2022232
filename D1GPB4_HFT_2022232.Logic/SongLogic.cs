@@ -44,7 +44,7 @@ namespace D1GPB4_HFT_2022232.Logic
 
         public IEnumerable<Song> EdSheeranSongs()
         {
-            var result = songRepo.ReadAll().Where(x => x.Author.Name == "Ed Sheeran");
+            var result = songRepo.ReadAll().Where(x => x.Author.Name == "Ed Sheraan");
             return result;
         }
 
