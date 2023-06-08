@@ -173,15 +173,12 @@ namespace D1GPB4_HFT_2022232.Client
 						case 2:
 							Console.Write("Album ID: ");
 							int albumId = int.Parse(Console.ReadLine());
-							restService.Delete(authorId, "Author");
+							restService.Delete(albumId, "Album");
 							break;
 						case 3:
 							Console.Write("Song ID: ");
-							string songTitle = Console.ReadLine();
-							restService.Post(new Song()
-							{
-								Title = songTitle
-							}, "Song");
+							int songId = int.Parse(Console.ReadLine());
+							restService.Delete(songId, "Song");
 							break;
 						default:
 							break;
