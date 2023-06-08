@@ -184,8 +184,6 @@ namespace D1GPB4_HFT_2022232.Client
 							break;
 					}
 					break;
-					Console.WriteLine("Deleting MGK");
-                    restService.Delete(2, "Author");
                     break;
                 default:
 					break;
