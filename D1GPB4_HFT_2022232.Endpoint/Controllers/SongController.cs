@@ -1,4 +1,7 @@
-﻿using System;
+﻿using D1GPB4_HFT_2022232.Logic;
+using D1GPB4_HFT_2022232.Models;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace Application
@@ -8,11 +11,9 @@ namespace Application
     public class SongController : ControllerBase
     {
         ISongLogic songLogic;
-        IHubContext<SignalRHub> hub;
-        public SongController(ISongLogic songLogic, IHubContext<SignalRHub> hub)
+        public SongController(ISongLogic songLogic)
         {
             this.songLogic = songLogic;
-            this.hub = hub;
         }
         // GET: /song
         [HttpGet]
@@ -32,7 +33,6 @@ namespace Application
         public void Post([FromBody] Song value)
         {
             songLogic.Create(value);
-            hub.Clients.All.SendAsync("SongCreated", value);
         }
 
         // PUT /song
@@ -40,16 +40,14 @@ namespace Application
         public void Put([FromBody] Song value)
         {
             songLogic.Update(value);
-            hub.Clients.All.SendAsync("SongUpdated", value);
         }
 
         // DELETE /song/id
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var songToDelete = songLogic.Read(id);
             songLogic.Delete(id);
-            hub.Clients.All.SendAsync("SongDeleted", songToDelete);
+
         }
     }
 }
