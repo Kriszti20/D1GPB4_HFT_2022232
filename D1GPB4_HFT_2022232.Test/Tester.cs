@@ -21,7 +21,9 @@ namespace D1GPB4_HFT_2022232.Test
 			songLogic = new SongLogic(MockSongRepo.Object);
 			var MockAlbumRepo = new Mock<IAlbumRepository>();
 			albumLogic = new AlbumLogic(MockAlbumRepo.Object);
-			
+			var MockAuthorRepo = new Mock<IAuthorRepository>();
+			authorLogic = new AuthorLogic(MockAuthorRepo.Object);
+
 			Author dualipa = new Author()
 			{
 				Name = "Dua Lipa"
@@ -160,6 +162,11 @@ namespace D1GPB4_HFT_2022232.Test
 		public void DeleteAlbumTest()
 		{
 			Assert.That(() => albumLogic.Delete(56), Throws.Nothing);
+		}
+		[Test]
+		public void DeleteAuthorTest()
+		{
+			Assert.That(() => authorLogic.Delete(97), Throws.Nothing);
 		}
 		[Test]
 		public void EdSheraanTest()
