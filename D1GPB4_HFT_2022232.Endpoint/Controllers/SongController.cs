@@ -47,7 +47,6 @@ namespace Application
         public void Delete(int id)
         {
             songLogic.Delete(id);
-
         }
     }
 }
