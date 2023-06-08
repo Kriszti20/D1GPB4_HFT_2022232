@@ -6,7 +6,7 @@ namespace D1GPB4_HFT_2022232.Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
