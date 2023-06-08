@@ -16,6 +16,10 @@ namespace D1GPB4_HFT_2022232.Logic
 
         public void Create(Album album)
         {
+            if (album.Name == null)
+            {
+                throw new NullReferenceException("Album is Empty");
+            }
             albumRepo.Create(album);
         }
 

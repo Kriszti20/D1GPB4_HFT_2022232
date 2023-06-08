@@ -15,6 +15,10 @@ namespace D1GPB4_HFT_2022232.Logic
 
         public void Create(Author author)
         {
+            if (author.Name == null)
+            {
+                throw new NullReferenceException("Author is Empty");
+            }
             authorRepo.Create(author);
         }
 

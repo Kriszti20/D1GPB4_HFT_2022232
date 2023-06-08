@@ -18,7 +18,7 @@ namespace D1GPB4_HFT_2022232.Logic
         {
             if (song.Title == null)
             {
-                throw new NullReferenceException("Your Song Title Is Empty");
+                throw new NullReferenceException("Song is Empty");
             }
             songRepo.Create(song);
         }
