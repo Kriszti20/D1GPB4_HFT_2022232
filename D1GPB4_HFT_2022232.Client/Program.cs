@@ -8,11 +8,16 @@ namespace D1GPB4_HFT_2022232.Client
     {
         static void Main(string[] args)
         {
-            Thread.Sleep(12000);
-            MainMenu();
+            Thread.Sleep(8000);
+			bool exit = false;
+			while (!exit)
+            {
+				MainMenu(ref exit);
+			}
+            
         }
 
-		static void MainMenu()
+		static void MainMenu(ref bool exit)
 		{
 			Console.WriteLine("1. Albums List, 2. Authors List, 3. Songs List, 4. Queries, 5. Post, 6. Put, 7. Delete");
 			RestService restService = new RestService("http://localhost:40083");
@@ -21,11 +26,11 @@ namespace D1GPB4_HFT_2022232.Client
 			var songs = restService.Get<Song>("Song");
 
 			int choice = int.Parse(Console.ReadLine());
-			var q1 = restService.Get<Song>("query/QueryOne");
-			var q2 = restService.Get<Song>("query/QueryTwo");
-			var q3 = restService.Get<Song>("query/QueryThree");
-			var q4 = restService.Get<Album>("query/QueryFour");
-			var q5 = restService.Get<Album>("query/QueryFive");
+			var q1 = restService.Get<Song>("stat/QueryOne");
+			var q2 = restService.Get<Song>("stat/QueryTwo");
+			var q3 = restService.Get<Song>("stat/QueryThree");
+			var q4 = restService.Get<Album>("stat/QueryFour");
+			var q5 = restService.Get<Album>("stat/QueryFive");
 
 			switch (choice)
 			{
@@ -184,7 +189,9 @@ namespace D1GPB4_HFT_2022232.Client
 							break;
 					}
 					break;
-                    break;
+				case 0:
+					exit = true;
+					break;
                 default:
 					break;
 			}
