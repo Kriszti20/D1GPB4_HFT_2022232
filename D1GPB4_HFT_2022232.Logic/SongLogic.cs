@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using D1GPB4_HFT_2022232.Models;
 using D1GPB4_HFT_2022232.Repository;
 
 namespace D1GPB4_HFT_2022232.Logic
 {
-	public class SongLogic
-	{
+    public class SongLogic : ISongLogic
+    {
         ISongRepository songRepo;
         public SongLogic(ISongRepository songRepo)
         {
@@ -40,6 +41,25 @@ namespace D1GPB4_HFT_2022232.Logic
         {
             songRepo.Update(song);
         }
+
+        public IEnumerable<Song> EdSheeranSongs()
+        {
+            var result = songRepo.ReadAll().Where(x => x.Author.Name == "Ed Sheeran");
+            return result;
+        }
+
+        public IEnumerable<Song> AlbumId2Songs()
+        {
+            var result = songRepo.ReadAll().Where(x => x.AlbumId == 2);
+            return result;
+        }
+        public IEnumerable<Song> RockSongs()
+        {
+            var result = songRepo.ReadAll().Where(x => x.Genre == "Rock");
+            return result;
+        }
+
+
     }
 }
 

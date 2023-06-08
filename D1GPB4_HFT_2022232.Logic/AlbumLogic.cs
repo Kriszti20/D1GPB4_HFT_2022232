@@ -2,11 +2,12 @@
 using D1GPB4_HFT_2022232.Models;
 using D1GPB4_HFT_2022232.Repository;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace D1GPB4_HFT_2022232.Logic
 {
-	public class AlbumLogic
-	{
+    public class AlbumLogic : IAlbumLogic
+    {
         IAlbumRepository albumRepo;
         public AlbumLogic(IAlbumRepository albumRepo)
         {
@@ -37,7 +38,16 @@ namespace D1GPB4_HFT_2022232.Logic
             albumRepo.Update(album);
         }
 
-
+        public IEnumerable<Album> AlbumsBefore1999()
+        {
+            var result = albumRepo.ReadAll().Where(x => x.ReleaseYear < 1999);
+            return result;
+        }
+        public IEnumerable<Album> StudioAlbums()
+        {
+            var result = albumRepo.ReadAll().Where(x => x.Songs.Count > 6);
+            return result;
+        }
     }
 }
 

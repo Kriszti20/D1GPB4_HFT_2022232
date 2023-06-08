@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace D1GPB4_HFT_2022232.Logic
 {
-	public class AuthorLogic
-	{
+    public class AuthorLogic : IAuthorLogic
+    {
         IAuthorRepository authorRepo;
         public AuthorLogic(IAuthorRepository authorRepo)
         {
