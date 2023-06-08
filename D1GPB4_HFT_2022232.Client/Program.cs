@@ -116,22 +116,81 @@ namespace D1GPB4_HFT_2022232.Client
 							break;
 						default:
                             break;
-                    }
-                    
+                    }                    
 					break;
-				//case 6:
-				//	Console.WriteLine("Updating Author -> Miki Matsubara");
-				//	restService.Put(new Author()
-				//	{
-				//		Id = 6,
-				//		Name = "Miki Matsubara",
-				//	}, "Author");
-				//	break;
-				//case 7:
-				//	Console.WriteLine("Deleting MGK");
-				//	restService.Delete(2, "Author");
-				//	break;
-				default:
+                case 6:
+					Console.WriteLine("Put: 1. Author, 2. Album, 3. Song");
+					int putChoice = int.Parse(Console.ReadLine());
+					switch (putChoice)
+					{
+						case 1:
+							Console.Write("Author Name: ");
+							string authorName = Console.ReadLine();
+                            Console.WriteLine("Author ID: ");
+							int authorId = int.Parse(Console.ReadLine());
+							restService.Put(new Author()
+							{
+								Id = authorId,
+								Name = authorName
+							}, "Author");
+							break;
+						case 2:
+							Console.Write("Album Name: ");
+							string albumName = Console.ReadLine();
+                            Console.WriteLine("Album ID: ");
+							int albumId = int.Parse(Console.ReadLine());
+							restService.Put(new Album()
+							{
+								Id = albumId,
+								Name = albumName
+							}, "Album");
+							break;
+						case 3:
+							Console.Write("Song Title: ");
+							string songTitle = Console.ReadLine();
+                            Console.WriteLine("Album ID: ");
+							int songId = int.Parse(Console.ReadLine());
+							restService.Put(new Song()
+							{
+								Id = songId,
+								Title = songTitle
+							}, "Song");
+							break;
+						default:
+							break;
+					}
+                    break;
+                case 7:
+					Console.WriteLine("Delete: 1. Author, 2. Album, 3. Song");
+					int deleteChoice = int.Parse(Console.ReadLine());
+					switch (deleteChoice)
+					{
+						case 1:
+							Console.Write("Author ID: ");
+							int authorId = int.Parse(Console.ReadLine());
+							restService.Delete(authorId, "Author");
+							break;
+						case 2:
+							Console.Write("Album ID: ");
+							int albumId = int.Parse(Console.ReadLine());
+							restService.Delete(authorId, "Author");
+							break;
+						case 3:
+							Console.Write("Song ID: ");
+							string songTitle = Console.ReadLine();
+							restService.Post(new Song()
+							{
+								Title = songTitle
+							}, "Song");
+							break;
+						default:
+							break;
+					}
+					break;
+					Console.WriteLine("Deleting MGK");
+                    restService.Delete(2, "Author");
+                    break;
+                default:
 					break;
 			}
 			
