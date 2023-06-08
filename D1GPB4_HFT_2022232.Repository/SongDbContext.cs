@@ -60,13 +60,26 @@ namespace D1GPB4_HFT_2022232.Repository
             });
 
             Author author1 = new Author() { Id = 1, Name = "Lady Gaga" };
-            Author author2 = new Author() { Id = 1, Name = "Lady Gaga" };
-            Author author3 = new Author() { Id = 1, Name = "Lady Gaga" };
-            Author author4 = new Author() { Id = 1, Name = "Lady Gaga" };
-            Author author5 = new Author() { Id = 1, Name = "Lady Gaga" };
+            Author author2 = new Author() { Id = 2, Name = "Ariana Grande" };
+            Author author3 = new Author() { Id = 3, Name = "Katy Perry" };
+            Author author4 = new Author() { Id = 4, Name = "Selena Gomez" };
+            Author author5 = new Author() { Id = 5, Name = "Ed Sheeran" };
+            Author author6 = new Author() { Id = 6, Name = "Adele" };
+            Author author7 = new Author() { Id = 7, Name = "Blur" };
 
-            Album album1 = new Album() { Id = 1, Name = "Purpose", AuthorId = author1.Id, ReleaseYear = 2015 };
-            Song song1 = new Song() { Id = 1,Title = "Love Yourself", AuthorId = author1.Id, Genre = "Pop", AlbumId = album1.Id };
+            Album album1 = new Album() { Id = 1, Name = "The Fame Monster", AuthorId = author1.Id, ReleaseYear = 2015 };
+            Album album2 = new Album() { Id = 1, Name = "My Everything", AuthorId = author2.Id, ReleaseYear = 2014 };
+            Album album3 = new Album() { Id = 1, Name = "Purpose", AuthorId = author1.Id, ReleaseYear = 2015 };
+            Album album4 = new Album() { Id = 1, Name = "Purpose", AuthorId = author1.Id, ReleaseYear = 2015 };
+            Album album5 = new Album() { Id = 1, Name = "Divide", AuthorId = author5.Id, ReleaseYear = 2017 };
+            Album album6 = new Album() { Id = 1, Name = "Blur", AuthorId = author7.Id, ReleaseYear = 1997 };
+
+
+            Song song1 = new Song() { Id = 1, Title = "Bad Romance", AuthorId = author1.Id, Genre = "Pop", AlbumId = album1.Id };
+            Song song2 = new Song() { Id = 2, Title = "Song 2", AuthorId = author7.Id, Genre = "Rock", AlbumId = album2.Id };
+            Song song3 = new Song() { Id = 2, Title = "Break Free", AuthorId = author2.Id, Genre = "Pop", AlbumId = album2.Id };
+
+
         }
     }
 }
