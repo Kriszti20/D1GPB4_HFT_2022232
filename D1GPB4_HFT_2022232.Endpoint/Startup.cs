@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using D1GPB4_HFT_2022232.Endpoint.Services;
 using D1GPB4_HFT_2022232.Logic;
 using D1GPB4_HFT_2022232.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +30,7 @@ namespace D1GPB4_HFT_2022232.Endpoint
             services.AddTransient<IAuthorRepository, AuthorRepository>();
 
             services.AddTransient<SongDbContext, SongDbContext>();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,10 +42,16 @@ namespace D1GPB4_HFT_2022232.Endpoint
             }
 
             app.UseRouting();
+            app.UseCors(x => x
+               .AllowCredentials()
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .WithOrigins("http://localhost:23072"));
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

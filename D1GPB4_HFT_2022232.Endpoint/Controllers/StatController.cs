@@ -14,44 +14,44 @@ namespace D1GPB4_HFT_2022232.Endpoint.Controllers
     [ApiController]
     public class StatController : ControllerBase
     {
-		IAlbumLogic albumLogic;
-		ISongLogic songLogic;
-		public StatController(IAlbumLogic albumLogic, ISongLogic songLogic)
-		{
-			this.albumLogic = albumLogic;
-			this.songLogic = songLogic;
-		}
+        IAlbumLogic albumLogic;
+        ISongLogic songLogic;
+        public StatController(IAlbumLogic albumLogic, ISongLogic songLogic)
+        {
+            this.albumLogic = albumLogic;
+            this.songLogic = songLogic;
+        }
 
 
-		[HttpGet]
-		public IEnumerable<Song> QueryOne()
-		{
-			return songLogic.AlbumId2Songs();
-		}
+        [HttpGet]
+        public IEnumerable<Song> QueryOne()
+        {
+            return songLogic.AlbumId2Songs();
+        }
 
-		[HttpGet]
-		public IEnumerable<Song> QueryTwo()
-		{
-			return songLogic.EdSheeranSongs();
-		}
+        [HttpGet]
+        public IEnumerable<Song> QueryTwo()
+        {
+            return songLogic.EdSheeranSongs();
+        }
 
-		[HttpGet]
-		public IEnumerable<Song> QueryThree()
-		{
-			return songLogic.RockSongs();
-		}
+        [HttpGet]
+        public IEnumerable<Song> QueryThree()
+        {
+            return songLogic.RockSongs();
+        }
 
-		[HttpGet]
-		public IEnumerable<Album> QueryFour()
-		{
-			return albumLogic.AlbumsBefore1999();
-		}
+        [HttpGet]
+        public IEnumerable<Album> QueryFour()
+        {
+            return albumLogic.AlbumsBefore1999();
+        }
 
-		[HttpGet]
-		public IEnumerable<Album> QueryFive()
-		{
-			return albumLogic.StudioAlbums();
-		}
+        [HttpGet]
+        public IEnumerable<Album> QueryFive()
+        {
+            return albumLogic.StudioAlbums();
+        }
 
-	}
+    }
 }
